@@ -59,7 +59,7 @@ class BoundaryEvent
       :title => "Nagios #{data[:event_type].to_s} event",
       :tags => ["nagios"],
       :status => ok_states.include?(data[:state]) ? "CLOSED" : "OPEN",
-      :severity => ok_states.include?(data[:state]) ? "INFO" : "ERROR",
+      :severity => ok_states.include?(data[:state]) ? "CRITICAL" : "WARNING" : "ERROR" : "INFO",
       :message => data[:output].split("\n")[0],
       :properties => {
         :eventKey => "nagios-check",
